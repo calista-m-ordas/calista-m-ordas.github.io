@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calista Ordas Mapping Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Manrope Typeface -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- CSS VARIABLES ---------- */
+    :root {
+      --sundrenched-orange: #d15a35;
+      --sundrenched-tan: #e09c5e;
+      --sundrenched-brown: #85512f;
+      --sundrenched-rust: #a0492b;
+      --sundrenched-beige: #c9936a;
+      --sundrenched-dark: #59302c;
+      --bg-paper: #f7f4ef;
+      --border-soft: #cbbba8;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ---------- GLOBAL ---------- */
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      color: var(--sundrenched-dark);
+      background: #4a3626;
+      line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><g stroke="%23f7f4ef" stroke-width="1.5" fill="none" opacity="0.15"><path d="M50 100 Q200 80 350 100 T650 100 T950 100 T1150 100"/><path d="M30 150 Q180 130 330 150 T630 150 T930 150 T1130 150"/><path d="M70 200 Q220 180 370 200 T670 200 T970 200 T1170 200"/><path d="M40 250 Q190 230 340 250 T640 250 T940 250 T1140 250"/><path d="M80 300 Q230 280 380 300 T680 300 T980 300 T1180 300"/><path d="M20 350 Q170 330 320 350 T620 350 T920 350 T1120 350"/><path d="M60 400 Q210 380 360 400 T660 400 T960 400 T1160 400"/><path d="M90 450 Q240 430 390 450 T690 450 T990 450 T1190 450"/><path d="M35 500 Q185 480 335 500 T635 500 T935 500 T1135 500"/><path d="M75 550 Q225 530 375 550 T675 550 T975 550 T1175 550"/><path d="M45 600 Q195 580 345 600 T645 600 T945 600 T1145 600"/><path d="M85 650 Q235 630 385 650 T685 650 T985 650 T1185 650"/><path d="M25 700 Q175 680 325 700 T625 700 T925 700 T1125 700"/><path d="M65 750 Q215 730 365 750 T665 750 T965 750 T1165 750"/><ellipse cx="300" cy="250" rx="80" ry="60"/><ellipse cx="300" cy="250" rx="60" ry="45"/><ellipse cx="300" cy="250" rx="40" ry="30"/><ellipse cx="800" cy="400" rx="100" ry="70"/><ellipse cx="800" cy="400" rx="75" ry="52"/><ellipse cx="800" cy="400" rx="50" ry="35"/><ellipse cx="500" cy="600" rx="70" ry="50"/><ellipse cx="500" cy="600" rx="50" ry="35"/><ellipse cx="1000" cy="200" rx="60" ry="45"/><ellipse cx="1000" cy="200" rx="40" ry="30"/></g></svg>');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 1;
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--sundrenched-dark);
+      font-weight: 600;
+    }
+
+    /* ---------- HERO BANNER ---------- */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .hero img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 0;
+    }
+
+    /* Dark overlay for readability with brown tint */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(107, 79, 58, 0.55);
+      z-index: 1;
+    }
+
+    /* Fade overlay at bottom - seamless blend into brown background */
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 250px;
+      background: linear-gradient(
+        to bottom,
+        rgba(74, 54, 38, 0) 0%,
+        rgba(74, 54, 38, 0.15) 20%,
+        rgba(74, 54, 38, 0.35) 40%,
+        rgba(74, 54, 38, 0.55) 60%,
+        rgba(74, 54, 38, 0.75) 75%,
+        rgba(74, 54, 38, 0.9) 90%,
+        #4a3626 100%
+      );
+      z-index: 2;
+    }
+
+    /* Hero container for horizontal layout */
+    .hero-container {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      gap: 3rem;
+      padding: 0 3rem;
+    }
+
+    /* Hero content - LEFT SIDE */
+    .hero-content {
+      text-align: left;
+      color: white;
+      flex: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      text-shadow: 
+        2px 2px 4px rgba(47, 79, 80, 0.8),
+        4px 4px 8px rgba(47, 79, 80, 0.6),
+        0 0 20px rgba(47, 79, 80, 0.4);
+    }
+
+    .hero-content h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      opacity: 0.95;
+      text-shadow: 
+        2px 2px 4px rgba(47, 79, 80, 0.8),
+        3px 3px 6px rgba(47, 79, 80, 0.6),
+        0 0 15px rgba(47, 79, 80, 0.3);
+    }
+
+    .hero-content .skills {
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      opacity: 0.9;
+      text-shadow: 
+        2px 2px 4px rgba(47, 79, 80, 0.8),
+        3px 3px 6px rgba(47, 79, 80, 0.6),
+        0 0 15px rgba(47, 79, 80, 0.3);
+    }
+
+    /* Floating Nav Box - RIGHT SIDE */
+    .hero-nav {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      border: 2px solid #5F9EA0;
+      flex-shrink: 0;
+      min-width: 240px;
+      max-width: 260px;
+      transition: border-color 0.3s ease;
+    }
+
+    .hero-nav:hover {
+      border-color: var(--sundrenched-orange);
+    }
+
+    .hero-nav .nav-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--sundrenched-dark);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(209, 90, 53, 0.2);
+    }
+
+    .hero-nav-links a {
+      color: var(--sundrenched-brown);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      padding: 0.25rem 0;
+    }
+
+    .hero-nav-links a:hover {
+      color: var(--sundrenched-orange);
+    }
+
+    /* Search bar styling */
+    .nav-search {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-search label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--sundrenched-brown);
+      margin-bottom: 0.5rem;
+      align-self: flex-start;
+    }
+
+    .nav-search input {
+      width: 90%;
+      padding: 0.65rem 0.85rem;
+      border: 2px solid rgba(209, 90, 53, 0.3);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-family: 'Manrope', sans-serif;
+      transition: border-color 0.2s;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .nav-search input:focus {
+      outline: none;
+      border-color: var(--sundrenched-orange);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .nav-search input::placeholder {
+      color: rgba(133, 81, 47, 0.5);
+      font-size: 0.85rem;
+    }
+
+    /* Remove old nav bar */
+    nav {
+      display: none;
+    }
+
+    /* ---------- PROJECTS SECTION ---------- */
+    section {
+      max-width: 1300px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    h3 {
+      font-weight: 700;
+      color: var(--bg-paper);
+      margin-bottom: 3.5rem;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .project-card {
+      background: rgba(247, 244, 239, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      border: 2px solid #5F9EA0;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+      border-color: var(--sundrenched-orange);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: var(--bg-paper);
+      border-bottom: 3px solid #5F9EA0;
+      position: relative;
+      transition: border-color 0.3s ease;
+    }
+
+    .project-card:hover .project-image {
+      border-bottom-color: var(--sundrenched-orange);
+    }
+
+    .project-image::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(107, 79, 58, 0.12);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-image.placeholder {
+      display: none;
+    }
+
+    .project-info {
+      padding: 12px 20px;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--sundrenched-dark);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .project-description {
+      color: var(--sundrenched-brown);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .project-tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: #5F9EA0;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tag:hover {
+      background: var(--sundrenched-orange);
+    }
+
+    /* Placeholder styling */
+    .placeholder {
+      border: 1px dashed rgba(247, 244, 239, 0.5);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--bg-paper);
+      background: rgba(89, 48, 44, 0.3);
+      border-radius: 8px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: 4rem;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--bg-paper);
+      border-top: 1px solid rgba(209, 90, 53, 0.4);
+      background: rgba(59, 38, 26, 0.6);
+    }
+
+    footer .email-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--sundrenched-tan);
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--sundrenched-orange);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .hero {
+        height: 550px;
+        padding: 2rem 1.5rem;
+      }
+
+      .hero-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-content h2 {
+        font-size: 1.1rem;
+      }
+
+      .hero-content .skills {
+        font-size: 0.9rem;
+      }
+
+      .hero-nav {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+    </style>
+</head>
+<body>
+
+  <!-- HERO MAP BANNER WITH FLOATING NAV -->
+  <header class="hero">
+    <img src="header-topo-map.png" alt="Vintage Topographic Map">
+    
+    <div class="hero-container">
+      <!-- Left side: Name and info -->
+      <div class="hero-content">
+        <h1>Calista Ordas<br>Mapping Portfolio</h1>
+        <h2>MS &amp; BS Earth Systems, Stanford University</h2>
+        <p class="skills">ArcGIS · ArcGIS Online · QGIS · SeaDAS</p>
+      </div>
+
+      <!-- Right side: Floating nav box -->
+      <div class="hero-nav">
+        <div class="nav-title">Navigation</div>
+        <div class="hero-nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-search">
+          <label for="tag-search">Search by Tag</label>
+          <input type="text" id="tag-search" placeholder="e.g., ArcGIS, Python, QGIS..." onkeyup="filterProjects()">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects">
+    <h3>Projects</h3>
+    <div class="projects-grid">
+                
+      <!-- Project Card 1 -->
+      <a href="The_Price_of_Progress_final_CO.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-image">
+          <img src="project1-price-of-progress (3).png" alt="W Pink Line Analysis Map">
+        </div>
+        <div class="project-info">
+          <h4 class="project-title">The Price of Progress</h4>
+          <p class="project-description">GIS Analysis of Displacement Risks in Marginalized Communities from LA28 Olympics Light Rail Plans - Awarded Excellence in Capstone 2025</p>
+          <div class="project-tags">
+            <span class="tag">QGIS</span>
+            <span class="tag">Statistics</span>
+            <span class="tag">Environmental Justice</span>
+            <span class="tag">Honors</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 2 -->
+      <a href="https://stanford.maps.arcgis.com/apps/webappviewer/index.html?id=3592a1a7a75e47bea87d2c0a95a54259" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-image">
+          <img src="project2-air-quality-ssf.png" alt="Monitor Proximity Analysis Dashboard">
+        </div>
+        <div class="project-info">
+          <h4 class="project-title">Spatial Decision Tool for Air Quality Monitoring in SSF</h4>
+          <p class="project-description">An internal ArcGIS dashboard synthesizing environmental exposure, proximity, and vulnerability data for a marginalized community</p>
+          <div class="project-tags">
+            <span class="tag">ArcGIS Online</span>
+            <span class="tag">Python</span>
+            <span class="tag">Live Tool</span>
+            <span class="tag">Non-profit Work</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 3 -->
+      <a href="Mapping_Flood_Vulnerability_CO.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-image">
+          <img src="project3-flood-insurance.png" alt="Flood Insurance Vulnerability Tessellation Map">
+        </div>
+        <div class="project-info">
+          <h4 class="project-title">Mapping Flood Insurance Vulnerability</h4>
+          <p class="project-description">Tessellation-based assessment of exposure to future sea-level rise</p>
+          <div class="project-tags">
+            <span class="tag">ArcGIS</span>
+            <span class="tag">Cartographic Style</span>
+            <span class="tag">Environmental Justice</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 4 -->
+      <a href="Hydrolic_Change_CO.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-image">
+          <img src="project4-hydrology.png" alt="Hydrologic Change Map">
+        </div>
+        <div class="project-info">
+          <h4 class="project-title">Hydrologic Change and Archaeological Landscapes</h4>
+          <p class="project-description">Assessing climate-driven impacts on archaeological sites in the San Joaquin Valley</p>
+          <div class="project-tags">
+            <span class="tag">ArcGIS</span>
+            <span class="tag">Hydrology</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 5 - Placeholder -->
+      <a href="#project5" class="project-card">
+        <div class="project-image placeholder"></div>
+        <div class="project-info">
+          <h4 class="project-title">Project Coming Soon</h4>
+          <p class="project-description">Additional mapping project to be added</p>
+          <div class="project-tags">
+            <span class="tag">TBD</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 6 - Placeholder -->
+      <a href="#project6" class="project-card">
+        <div class="project-image placeholder"></div>
+        <div class="project-info">
+          <h4 class="project-title">Project Coming Soon</h4>
+          <p class="project-description">Additional mapping project to be added</p>
+          <div class="project-tags">
+            <span class="tag">TBD</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h3>About</h3>
+    <div style="line-height: 1.8; color: var(--bg-paper); max-width: 900px; margin: 0 auto; text-align: center;">
+      <p style="margin-bottom: 1rem;">Calista Ordas is a coterminal student at Stanford University pursuing an M.S. in Earth Systems with a focus on spatial environmental analysis, following her B.S. in Earth Systems and a minor in Data Science. Her work spans environmental research, GIS analysis, and community-focused projects across research, consulting, and NGO settings.</p>
+      
+      <p style="margin: 0;">Calista has been recognized with multiple academic awards, including Excellence in Undergraduate Academics and Excellence in Senior Capstone. She currently serves as Head Teaching Assistant for two of the largest courses in the Doerr School of Sustainability and is passionate about applying GIS and spatial analysis to support nonprofit and community-based environmental work.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>© 2026 Calista Ordas · GIS &amp; Earth Systems</p>
+    <div class="email-links">
+      <a href="mailto:caliordasstanford@gmail.com">caliordasstanford@gmail.com</a>
+      <a href="mailto:calista.ordas.gis@gmail.com">calista.ordas.gis@gmail.com</a>
+    </div>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.linkedin.com/in/calistao" target="_blank" rel="noopener noreferrer" style="color: var(--sundrenched-tan); font-weight: 700; text-decoration: underline; transition: color 0.2s;">www.linkedin.com/in/calistao</a>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function filterProjects() {
+      const searchInput = document.getElementById('tag-search').value.toLowerCase();
+      const projectCards = document.querySelectorAll('.project-card');
+      
+      projectCards.forEach(card => {
+        const tags = card.querySelectorAll('.tag');
+        let hasMatch = false;
+        
+        // If search is empty, show all cards
+        if (searchInput === '') {
+          card.style.display = 'block';
+          retu
