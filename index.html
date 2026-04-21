@@ -81,7 +81,6 @@
       z-index: 0;
     }
 
-    /* Dark overlay for readability with brown tint */
     .hero::before {
       content: "";
       position: absolute;
@@ -93,7 +92,6 @@
       z-index: 1;
     }
 
-    /* Fade overlay at bottom - seamless blend into brown background */
     .hero::after {
       content: "";
       position: absolute;
@@ -114,7 +112,6 @@
       z-index: 2;
     }
 
-    /* Hero container for horizontal layout */
     .hero-container {
       position: relative;
       z-index: 3;
@@ -127,7 +124,6 @@
       padding: 0 3rem;
     }
 
-    /* Hero content - LEFT SIDE */
     .hero-content {
       text-align: left;
       color: white;
@@ -166,7 +162,6 @@
         0 0 15px rgba(47, 79, 80, 0.3);
     }
 
-    /* Floating Nav Box - RIGHT SIDE */
     .hero-nav {
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(10px);
@@ -214,7 +209,6 @@
       color: var(--sundrenched-orange);
     }
 
-    /* Search bar styling */
     .nav-search {
       margin-top: 1rem;
       display: flex;
@@ -253,7 +247,6 @@
       font-size: 0.85rem;
     }
 
-    /* Remove old nav bar */
     nav {
       display: none;
     }
@@ -274,7 +267,6 @@
       text-align: center;
     }
 
-    /* Projects Grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -335,8 +327,34 @@
       display: block;
     }
 
-    .project-image.placeholder {
-      display: none;
+    /* Placeholder image area styling */
+    .project-image.placeholder-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(203, 187, 168, 0.35);
+    }
+
+    .project-image.placeholder-img .placeholder-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.5;
+    }
+
+    .project-image.placeholder-img .placeholder-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--sundrenched-brown);
+    }
+
+    .project-image.placeholder-img .placeholder-icon span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sundrenched-brown);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .project-info {
@@ -492,8 +510,43 @@
   <section id="projects">
     <h3>Projects</h3>
     <div class="projects-grid">
-                
-      <!-- Project Card 5 -->
+
+      <!-- ROW 1 -->
+
+      <!-- Project Card A: Wildfire Hazard Assessment -->
+      <a href="burn_projected_CA.jpg" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-image">
+          <img src="project7-wildfire.png" alt="Spatiotemporal Dynamics of Wildfire Hazard Assessment of California">
+        </div>
+        <div class="project-info">
+          <h4 class="project-title">Spatiotemporal Dynamics of Wildfire Hazard Assessment of California</h4>
+          <p class="project-description">This project identifies emerging patterns of wildfire risk across California by integrating 3D space-time cube modeling with high-resolution climate projections. I utilized heuristic modeling (incorporating variables such as historical burn patterns, LANDFIRE vegetation metrics, and CMIP5 scenarios) to simulate the trajectory of wildfire activity over 80 years.</p>
+          <div class="project-tags">
+            <span class="tag">ArcGIS Pro</span>
+            <span class="tag">3D Modeling</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 6: Hurricanes since 1851 -->
+      <a href="Hurricanes_Vulnerability_CO.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-image">
+          <img src="project6-hurricanes.png" alt="Hurricane Vulnerability Map">
+        </div>
+        <div class="project-info">
+          <h4 class="project-title">Hurricanes since 1851 against Socioeconomic Vulnerable Countries</h4>
+          <p class="project-description">Polar projection mapping of global hurricane tracks (1851-present) by intensity category, overlaid with socioeconomic vulnerability indicators to identify developing nations most impacted by tropical cyclone activity</p>
+          <div class="project-tags">
+            <span class="tag">ArcGIS Pro</span>
+            <span class="tag">Environmental Justice</span>
+            <span class="tag">Cartographic Style</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ROW 2 -->
+
+      <!-- Project Card 5: Mt. Rainier -->
       <a href="project5-mt-rainier.png" target="_blank" rel="noopener noreferrer" class="project-card">
         <div class="project-image">
           <img src="project5-mt-rainier.png" alt="3D Model of Mt. Rainier">
@@ -508,23 +561,7 @@
         </div>
       </a>
 
-      <!-- Project Card 6 -->
-      <a href="Hurricanes_Vulnerability_CO.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
-        <div class="project-image">
-          <img src="project6-hurricanes.png" alt="Hurricane Vulnerability Map">
-        </div>
-        <div class="project-info">
-          <h4 class="project-title">Hurricanes since 1851 against Socioeconomic Vulnerable Countries</h4>
-          <p class="project-description">Polar projection mapping of global hurricane tracks (1851-present) by intensity category, overlaid with socioeconomic vulnerability indicators to identify developing nations most impacted by tropical cyclone activity</p>
-          <div class="project-tags">
-            <span class="tag">ArcGIS</span>
-            <span class="tag">Environmental Justice</span>
-            <span class="tag">Cartographic Style</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Project Card 1 -->
+      <!-- Project Card 1: Price of Progress -->
       <a href="The_Price_of_Progress_final_CO.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
         <div class="project-image">
           <img src="project1-price-of-progress (3).png" alt="W Pink Line Analysis Map">
@@ -541,7 +578,9 @@
         </div>
       </a>
 
-      <!-- Project Card 2 -->
+      <!-- ROW 3 -->
+
+      <!-- Project Card 2: Air Quality SSF -->
       <a href="https://stanford.maps.arcgis.com/apps/webappviewer/index.html?id=3592a1a7a75e47bea87d2c0a95a54259" target="_blank" rel="noopener noreferrer" class="project-card">
         <div class="project-image">
           <img src="project2-air-quality-ssf.png" alt="Monitor Proximity Analysis Dashboard">
@@ -558,7 +597,7 @@
         </div>
       </a>
 
-      <!-- Project Card 3 -->
+      <!-- Project Card 3: Flood Insurance -->
       <a href="Mapping_Flood_Vulnerability_CO.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
         <div class="project-image">
           <img src="project3-flood-insurance.png" alt="Flood Insurance Vulnerability Tessellation Map">
@@ -574,7 +613,9 @@
         </div>
       </a>
 
-      <!-- Project Card 4 -->
+      <!-- ROW 4 -->
+
+      <!-- Project Card 4: Hydrologic Change -->
       <a href="Hydrolic_Change_CO.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
         <div class="project-image">
           <img src="project4-hydrology.png" alt="Hydrologic Change Map">
@@ -585,6 +626,21 @@
           <div class="project-tags">
             <span class="tag">ArcGIS</span>
             <span class="tag">Hydrology</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card B: Hurricane Ian Oceanography -->
+      <a href="final_241.pdf" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-image">
+          <img src="project8-oceanremote.png" alt="Physical and Biological Oceanographic Responses to Hurricane Ian on the Florida Shelf">
+        </div>
+        <div class="project-info">
+          <h4 class="project-title">Physical and Biological Oceanographic Responses to Hurricane Ian on the Florida Shelf</h4>
+          <p class="project-description">My final project for my Remote Sensing of the Ocean course investigates the bidirectional air-sea interactions triggered by Hurricane Ian (2022) on the West Florida Shelf. By integrating satellite-derived sea surface temperature (SST) and Chlorophyll-a datasets, I quantified this "cold wake" effect and the hypothesized lagged biomass response. Completed thermal anomaly maps, transect analysis, and time series graphs.</p>
+          <div class="project-tags">
+            <span class="tag">SeaDAS</span>
+            <span class="tag">Remote Sensing</span>
           </div>
         </div>
       </a>
@@ -614,3 +670,5 @@
     </div>
   </footer>
 
+</body>
+</html>
